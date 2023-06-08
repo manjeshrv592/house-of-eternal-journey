@@ -430,6 +430,10 @@ input::placeholder {
   font-weight: 700;
 }
 
+.mb-lg {
+  margin-bottom: 4.8rem;
+}
+
 .mb-md {
   margin-bottom: 2.4rem;
 }
