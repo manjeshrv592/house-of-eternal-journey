@@ -1,0 +1,499 @@
+/*****************************************/
+/* Importing fonts */
+
+@font-face {
+  font-family: 'Century Gothic';
+  src: url(../fonts/century-gothic-regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Century Gothic';
+  src: url(../fonts/century-gothic-bold.ttf);
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Vogue Sans';
+  src: url(../fonts/vogue-sans-regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Vogue Sans';
+  src: url(../fonts/vogue-sans-medium.ttf);
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Vogue Sans';
+  src: url(../fonts/vogue-sans-bold.ttf);
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Vogue Sans';
+  src: url(../fonts/vogue-sans-semi-bold.ttf);
+  font-style: normal;
+  font-weight: 700;
+}
+
+/***********************************/
+/* Custom Properties */
+:root {
+  /* Colors */
+  --white: #fff;
+  --black: #000;
+  --red: hsl(0, 100%, 74%);
+  --green: hsl(154, 59%, 51%);
+  --blue: hsl(248, 32%, 49%);
+  --dark-blue: hsl(249, 10%, 26%);
+  --grayish-blue: hsl(246, 25%, 77%);
+  --light-grey: #dedede;
+
+  /* Fonts */
+  --font-display: 'Vogue Sans', serif;
+  --font-body: 'Century Gothic', sans-serif;
+}
+
+/***********************************/
+/* Basic Reset */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: #424242;
+  font-size: 1.6rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  line-height: 2.6rem;
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)
+    ),
+    url('../images/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+img {
+  width: 100%;
+  display: inline-block;
+}
+
+/***********************************/
+/* Typography */
+
+/* Headings */
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: var(--font-display);
+}
+
+.h1 {
+  font-size: 3.6rem;
+  line-height: 4rem;
+}
+
+.h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/***********************************/
+/* Main Layout */
+
+.container {
+  width: 100%;
+  max-width: 115.8rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero {
+  padding: 3.6rem 0;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 3.6rem;
+}
+
+.hero-logo {
+  width: 25rem;
+  margin-bottom: 1rem;
+}
+
+.form {
+  margin: 3.6rem 0;
+}
+
+/* Footer */
+.footer {
+  padding-top: 3.6rem;
+  padding-bottom: 3.6rem;
+}
+
+.footer__copyright-text {
+  font-size: 1.2rem;
+  color: var(--gray);
+  text-align: center;
+  margin-top: 2.3rem;
+}
+
+/* Social Nav */
+.social-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.social-nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.social-nav__item {
+}
+
+.social-nav__link:link,
+.social-nav__link:visited {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4rem;
+  color: var(--dark-blue);
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(76, 123, 243, 0.15);
+  transition: all 0.3s ease;
+}
+
+.social-nav__link:hover,
+.social-nav__link:active {
+  border-color: transparent;
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+/***********************************/
+/* Components */
+/* Form */
+
+/* Remove default number input arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove default number input arrows */
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.form-group {
+  margin-bottom: 1.6rem;
+}
+
+.form-success-msg,
+.form-error-msg {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2rem;
+  margin-top: 0.8rem;
+}
+
+.form-success-msg {
+  color: var(--green);
+}
+
+.form-error-msg {
+  color: var(--red);
+}
+
+.form-group::after {
+  content: attr(data-error);
+  display: none;
+  font-size: 1.2rem;
+  color: var(--red);
+  text-align: right;
+  width: 100%;
+  font-weight: 700;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group::after {
+  content: '';
+  display: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.4rem;
+  background-image: url('./../images/icon-error.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.input {
+  background-color: transparent;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--dark-blue);
+  padding: 1.6rem 2rem;
+  padding-right: 5.6rem;
+  border: none;
+  border-bottom: 2px solid #b0bec5;
+  width: 100%;
+}
+
+.input:focus {
+  border-color: var(--blue);
+  outline: none;
+}
+
+input::placeholder {
+  color: #9e9e9e;
+}
+
+/* This style are auto applied when form group as 'data-error' attr */
+.form-group[data-error]::after {
+  display: inline-block;
+}
+
+.form-group[data-error] .input-group::after {
+  display: inline-block;
+}
+
+.form-group[data-error] input {
+  border-bottom: 2px solid var(--red);
+}
+
+/* Loader */
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 10px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 0px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+/* Buttons */
+.btn-link:link,
+.btn-link:visited {
+  color: inherit;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid currentColor;
+  transition: all 0.3s ease;
+}
+
+.btn-link:hover,
+.btn-link:active {
+  padding-bottom: 3px;
+}
+
+.btn {
+  padding: 2rem;
+  font-size: 2rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 3px;
+}
+
+.btn-success {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: hsl(249, 10%, 16%);
+}
+
+/***********************************/
+/* Util Classes */
+.d-none {
+  display: none;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-red {
+  color: var(--red);
+}
+
+.text-blue {
+  color: var(--blue);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.mb-md {
+  margin-bottom: 2.4rem;
+}
+
+.mb-sm {
+  margin-bottom: 0.8rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/**************************************/
+/* Responsive styling */
+/**************************************/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .input-group::after {
+    right: 2.8rem;
+  }
+
+  .input {
+    padding-right: 7rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .h1 {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+  .h3 {
+    margin-bottom: 3rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+  }
+
+  .hero {
+    text-align: left;
+  }
+
+  .hero-logo {
+    width: 40rem;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8rem;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+}
